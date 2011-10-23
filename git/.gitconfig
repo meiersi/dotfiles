@@ -1,0 +1,12 @@
+[core]
+    excludesfile=~/.gitexclude
+[user]
+    name = Simon Meier
+    email = iridcode@gmail.com
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[gui]
+    spellingdictionary = en_US
