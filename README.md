@@ -6,4 +6,6 @@ To include bash configurations use:
         . "~/shared-dotfiles/bash/$m"
     done
 
-in your .bashrc
+in your `.bashrc`
+
+Big Thx @ [iff](https://github.com/iff/shared-dotfiles "that prompt just rocks...")
