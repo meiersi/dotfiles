@@ -13,6 +13,7 @@ set shiftwidth=2
 set sts=2
 set expandtab
 set nowrap
+set gdefault
 syntax on
 filetype plugin on
 
