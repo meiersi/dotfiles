@@ -14,3 +14,6 @@ alias ack='ack-grep'
 # ssh
 
 # sshfs
+
+# utilities
+alias gv='gvim $* 2> /dev/null'
