@@ -12,6 +12,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ShowWName
 import XMonad.Layout.WindowNavigation
+import XMonad.Layout.LayoutHints (layoutHints)
 
 -- import XMonad.Util.Run (spawnPipe)
 
@@ -24,7 +25,7 @@ main = xmonad gnomeConfig
   , workspaces = myWorkspaces
   }
   where
-    myLayout = avoidStruts $ showWName $ smartBorders $ 
+    myLayout = avoidStruts $ layoutHints $ showWName $ smartBorders $ 
         (navigable $ MosaicAlt M.empty) ||| 
         simpleTabbed
 
