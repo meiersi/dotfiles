@@ -68,7 +68,11 @@ au! BufRead,BufNewFile *.ML         setfiletype sml
 " mapping for calling make
 map <F7> :w<CR>:!pdflatex %<CR>
 map <F8> :w<CR>:!make<CR>
+
+" NerdTree
 map <F9> :NERDTreeToggle<CR>
+" BufExplorer
+map <F11> :BufExplorer<CR>
 
 " ensure that buffer position is restored
 function! ResCur()
