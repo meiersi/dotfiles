@@ -14,10 +14,44 @@ set sts=2
 set expandtab
 set nowrap
 set gdefault
-syntax on
+set tw=78                     " default textwidth is a max of 78
+set list                      " enable custom list chars
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮    " replace tabs, eol
+set showbreak=↪               " show breaks
+set colorcolumn=+1
+set number
+syntax enable
+set background=dark
+colorscheme solarized
 filetype plugin on
 
-colorscheme koehler
+" ---------------------------------------------------------------------------
+"  configurations for vim or gvim only
+if !has("gui_running")
+    set background=dark
+    colorscheme darkblue
+    " let g:AutoClosePreservDotReg=0
+end
+if has("gui_running")
+    set background=dark
+    colorscheme solarized
+
+    "let rdark_current_line=1  " highlight current line
+    "set noantialias
+    "set lines=64
+    "set columns=135
+    "set transparency=0
+    "set gfn=Monaco:h9.0
+    "set gfn=Menlo:h10.0
+
+    set guioptions-=T        " no toolbar
+    set guioptions-=m        " no menubar
+    set guioptions-=l        " no left scrollbar
+    set guioptions-=L        " no left scrollbar
+    set guioptions-=r        " no right scrollbar
+    set guioptions-=R        " no right scrollbar
+    set clipboard=unnamed
+end
 
 " Tabularize remaps
 :nnoremap <F2>j :Tabularize /\( \\|^\)->\( \\|$\)/l0<CR>
@@ -64,33 +98,33 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 """"""""""""""""
 
 " Latex
-au FileType tex 	setlocal autowrite
-au FileType tex		setlocal efm=%E!\ LaTeX\ %trror:\ %m,
-	\%E!\ %m,
-	\%+WLaTeX\ %.%#Warning:\ %.%#line\ %l%.%#,
-	\%-GOverfull\ %m,
-	\%-GUnderfull\ %m,
-	\%+W%.%#\ at\ lines\ %l--%*\\d,
-	\%WLaTeX\ %.%#Warning:\ %m,
-	\%Cl.%l\ %m,
-	\%+C\ \ %m.,
-	\%+C%.%#-%.%#,
-	\%+C%.%#[]%.%#,
-	\%+C[]%.%#,
-	\%+C%.%#%[{}\\]%.%#,
-	\%+C<%.%#>%.%#,
-	\%C\ \ %m,
-	\%-GSee\ the\ LaTeX%m,
-	\%-GType\ \ H\ <return>%m,
-	\%-G\ ...%.%#,
-	\%-G%.%#\ (C)\ %.%#,
-	\%-G(see\ the\ transcript%.%#),
-	\%-G\\s%#,
-	\%+O(%f)%r,
-	\%+P(%f%r,
-	\%+P\ %\\=(%f%r,
-	\%+P%*[^()](%f%r,
-	\%+P[%\\d%[^()]%#(%f%r,
-	\%+Q)%r,
-	\%+Q%*[^()])%r,
-	\%+Q[%\\d%*[^()])%r
+au FileType tex         setlocal autowrite
+au FileType tex         setlocal efm=%E!\ LaTeX\ %trror:\ %m,
+        \%E!\ %m,
+        \%+WLaTeX\ %.%#Warning:\ %.%#line\ %l%.%#,
+        \%-GOverfull\ %m,
+        \%-GUnderfull\ %m,
+        \%+W%.%#\ at\ lines\ %l--%*\\d,
+        \%WLaTeX\ %.%#Warning:\ %m,
+        \%Cl.%l\ %m,
+        \%+C\ \ %m.,
+        \%+C%.%#-%.%#,
+        \%+C%.%#[]%.%#,
+        \%+C[]%.%#,
+        \%+C%.%#%[{}\\]%.%#,
+        \%+C<%.%#>%.%#,
+        \%C\ \ %m,
+        \%-GSee\ the\ LaTeX%m,
+        \%-GType\ \ H\ <return>%m,
+        \%-G\ ...%.%#,
+        \%-G%.%#\ (C)\ %.%#,
+        \%-G(see\ the\ transcript%.%#),
+        \%-G\\s%#,
+        \%+O(%f)%r,
+        \%+P(%f%r,
+        \%+P\ %\\=(%f%r,
+        \%+P%*[^()](%f%r,
+        \%+P[%\\d%[^()]%#(%f%r,
+        \%+Q)%r,
+        \%+Q%*[^()])%r,
+        \%+Q[%\\d%*[^()])%r

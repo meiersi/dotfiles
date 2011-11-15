@@ -79,6 +79,7 @@ myKeys (XConfig {modMask = modm}) = M.fromList $
 
       -- shortcuts for often used software
     , ((modm .|. shiftMask,   xK_Return), spawn "konsole")
+    , ((modm .|. shiftMask,   xK_h),      spawn "gvim")
     , ((modm .|. shiftMask,   xK_j),      spawn "firefox")
     , ((modm .|. shiftMask,   xK_n),      spawn "nautilus")
     , ((modm .|. shiftMask,   xK_i),      spawn "chromium-browser --password-store=gnome")
