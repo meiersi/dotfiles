@@ -97,9 +97,26 @@ map <A-c> <C-W>c
 " Change to the directory the file in your current buffer is in
 "autocmd BufEnter * :lcd %:p:h
 " From http://www.vim.org/tips/tip.php?tip_id=370
-autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+" autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+
+" Removing trailing whitespace
+""""""""""""""""""""""""""""""
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    let _s=@/ 
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre *.h *.c *.hs *.lhs :call <SID>StripTrailingWhitespaces()
+
 " Filetype stuff
 """"""""""""""""
+
+
 
 " Latex
 au FileType tex         setlocal autowrite
