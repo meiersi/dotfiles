@@ -1,9 +1,11 @@
 " Purpose: Set appropriate defaults
 " Author:  Simon Meier
 " Date:    2005/11/2
+" Updated: 2013/02/09
 
 " use pathogen to manage vim plugins
-call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " basic options
 set autoindent
@@ -22,7 +24,7 @@ set colorcolumn=+1
 set number
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 filetype plugin on
 
 " ---------------------------------------------------------------------------
