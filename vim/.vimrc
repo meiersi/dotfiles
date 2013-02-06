@@ -23,8 +23,9 @@ set showbreak=↪               " show breaks
 set colorcolumn=+1
 set number
 syntax enable
-set background=light
+let g:solarized_termcolors=256
 let g:solarized_contrast="high"    "default value is normal
+" let g:solarized_hitrail=1
 set background=light
 colorscheme solarized
 filetype plugin on
