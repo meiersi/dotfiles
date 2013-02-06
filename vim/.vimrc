@@ -23,8 +23,10 @@ set showbreak=↪               " show breaks
 set colorcolumn=+1
 set number
 syntax enable
-set background=dark
-" colorscheme solarized
+set background=light
+let g:solarized_contrast="high"    "default value is normal
+set background=light
+colorscheme solarized
 filetype plugin on
 
 " ---------------------------------------------------------------------------
@@ -35,16 +37,13 @@ if !has("gui_running")
     " let g:AutoClosePreservDotReg=0
 end
 if has("gui_running")
-    set background=dark
-    colorscheme solarized
-
     "let rdark_current_line=1  " highlight current line
     "set noantialias
     "set lines=64
     "set columns=135
     "set transparency=0
     "set gfn=Monaco:h9.0
-    "set gfn=Menlo:h10.0
+    set gfn=Menlo:h13.0
 
     set guioptions-=T        " no toolbar
     set guioptions-=m        " no menubar
