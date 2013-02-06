@@ -54,6 +54,9 @@ if has("gui_running")
     set clipboard=unnamed
 end
 
+" CtrlP remaps
+:nnoremap CTRL-p :CtrlP
+
 " Tabularize remaps
 :nnoremap <F2>j :Tabularize /\( \\|^\)->\( \\|$\)/l0<CR>
 :nnoremap <F2>k :Tabularize /\( \\|^\)<-\( \\|$\)/l0<CR>
