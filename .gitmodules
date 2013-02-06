@@ -16,3 +16,6 @@
 [submodule "vim/bundle/speeddating"]
 	path = vim/bundle/speeddating
 	url = git://github.com/tpope/vim-speeddating.git
+[submodule "vim/bundle/orgmode"]
+	path = vim/bundle/orgmode
+	url = git://github.com/jceb/vim-orgmode.git
