@@ -8,3 +8,4 @@
     diff = auto
 [core]
 	editor = vim
+	excludesfile = ~/.gitexclude

@@ -116,41 +116,5 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd BufWritePre *.h *.c *.hs *.lhs :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.h *.c *.hs *.lhs :call <SID>StripTrailingWhitespaces()  
 
-" Filetype stuff
-""""""""""""""""
-
-
-
-" Latex
-au FileType tex         setlocal autowrite
-au FileType tex         setlocal efm=%E!\ LaTeX\ %trror:\ %m,
-        \%E!\ %m,
-        \%+WLaTeX\ %.%#Warning:\ %.%#line\ %l%.%#,
-        \%-GOverfull\ %m,
-        \%-GUnderfull\ %m,
-        \%+W%.%#\ at\ lines\ %l--%*\\d,
-        \%WLaTeX\ %.%#Warning:\ %m,
-        \%Cl.%l\ %m,
-        \%+C\ \ %m.,
-        \%+C%.%#-%.%#,
-        \%+C%.%#[]%.%#,
-        \%+C[]%.%#,
-        \%+C%.%#%[{}\\]%.%#,
-        \%+C<%.%#>%.%#,
-        \%C\ \ %m,
-        \%-GSee\ the\ LaTeX%m,
-        \%-GType\ \ H\ <return>%m,
-        \%-G\ ...%.%#,
-        \%-G%.%#\ (C)\ %.%#,
-        \%-G(see\ the\ transcript%.%#),
-        \%-G\\s%#,
-        \%+O(%f)%r,
-        \%+P(%f%r,
-        \%+P\ %\\=(%f%r,
-        \%+P%*[^()](%f%r,
-        \%+P[%\\d%[^()]%#(%f%r,
-        \%+Q)%r,
-        \%+Q%*[^()])%r,
-        \%+Q[%\\d%*[^()])%r
