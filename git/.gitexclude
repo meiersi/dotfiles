@@ -2,3 +2,4 @@
 *.swo
 *.hi
 *.o
+.DS_store
