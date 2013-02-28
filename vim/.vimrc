@@ -53,6 +53,7 @@ if has("gui_running")
     set guioptions-=r        " no right scrollbar
     set guioptions-=R        " no right scrollbar
     set clipboard=unnamed
+    set vb
 end
 
 " CtrlP remaps
