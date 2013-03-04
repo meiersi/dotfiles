@@ -75,7 +75,7 @@ ps_scm_f() {
 
 __git_prompt_command() {
     ret=$?
-    PS1="\n\[\e[37;1m\]┌─(\[\e[34;1m\]\u@\h\[\e[37;1m\])-(\[\[\e[34;1m\]\w\[\e[37;1m\])-($(ps_scm_f)\[\e[37;1m\])\n\[\e[37;1m\]└─╼ \[\e[0m\]"
+    PS1="\n\[\e[37;1m\]┌─(\[\e[34;1m\]\u@\h\[\e[37;1m\])-(\[\e[34;1m\]\w\[\e[37;1m\])-($(ps_scm_f)\[\e[37;1m\])\n\[\e[37;1m\]└─╼ \[\e[0m\]"
 }
 PS1="\w\$"
 PROMPT_COMMAND=__git_prompt_command
