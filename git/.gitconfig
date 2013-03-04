@@ -1,17 +1,9 @@
 [user]
 	name = Simon Meier
 	email = simon.meier@erudify.ch
-[push]
-	default = simple
 [color]
     ui = true
     diff = auto
 [core]
 	editor = vim
-	excludesfile = /Users/simon/.gitexclude
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	excludesfile = $HOME/.gitexclude
