@@ -3,6 +3,11 @@
 " Date:    2005/11/2
 " Updated: 2013/02/09
 
+" seting up the mapleader to ';'
+let mapleader = ';' 
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxy'
+let g:EasyMotion_leader_key = '<Leader>'
+
 " use pathogen to manage vim plugins
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
