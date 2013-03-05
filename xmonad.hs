@@ -14,28 +14,36 @@ import XMonad.Layout.ShowWName
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.LayoutHints (layoutHints)
 
+import System.Exit
+
 -- import XMonad.Util.Run (spawnPipe)
 
 main :: IO ()
 main = xmonad gnomeConfig
-  { manageHook = myManageHook 
+  { manageHook = myManageHook
   , modMask    = mod4Mask
   , keys       = \c -> myKeys c `M.union` keys gnomeConfig c
   , layoutHook = myLayout
   , workspaces = myWorkspaces
+  , startupHook = startup
   }
   where
-    myLayout = avoidStruts $ layoutHints $ showWName $ smartBorders $ 
-        (navigable $ MosaicAlt M.empty) ||| 
+    startup = do
+        spawn "gnome-settings-daemon"
+        spawn "synapse"
+        spawn "xset r rate 250 80"
+
+    myLayout = avoidStruts $ layoutHints $ showWName $ smartBorders $
+        (navigable $ MosaicAlt M.empty) |||
         simpleTabbed
 
-    navigable = configurableNavigation noNavigateBorders 
+    navigable = configurableNavigation noNavigateBorders
 
 myManageHook :: ManageHook
 myManageHook = composeAll (
     [ manageHook gnomeConfig
-    , className =? "Unity-2d-panel" --> doIgnore
-    , className =? "Unity-2d-launcher" --> doFloat
+    -- , className =? "Unity-2d-panel" --> doIgnore
+    -- , className =? "Unity-2d-launcher" --> doFloat
     ])
 
 myWorkspaces :: [String]
@@ -52,6 +60,9 @@ myKeys (XConfig {modMask = modm}) = M.fromList $
 
       -- close focused window
     , ((modm, xK_c), kill)
+
+      -- Quit xmonad
+    , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
 
      -- reset the current layout
     , ((modm .|. controlMask,   xK_space ), sendMessage resetAlt)
@@ -79,10 +90,10 @@ myKeys (XConfig {modMask = modm}) = M.fromList $
     , ((modm,                 xK_x    ), swapNextScreen)
 
       -- shortcuts for often used software
-    , ((modm .|. shiftMask,   xK_Return), spawn "konsole")
+    , ((modm .|. shiftMask,   xK_Return), spawn "gnome-terminal")
     , ((modm .|. shiftMask,   xK_h),      spawn "gvim")
     , ((modm .|. shiftMask,   xK_j),      spawn "firefox")
     , ((modm .|. shiftMask,   xK_n),      spawn "nautilus")
-    , ((modm .|. shiftMask,   xK_i),      spawn "chromium-browser --password-store=gnome")
+    , ((modm .|. shiftMask,   xK_i),      spawn "chromium-browser")
     , ((modm .|. shiftMask,   xK_o),      spawn "gksu synaptic")
     ]
