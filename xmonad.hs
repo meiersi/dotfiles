@@ -29,6 +29,7 @@ main = xmonad gnomeConfig
   }
   where
     startup = do
+        spawn "gnome-keyring-daemon"
         spawn "gnome-settings-daemon"
         spawn "synapse"
         spawn "xset r rate 250 80"
