@@ -6,4 +6,6 @@
     diff = auto
 [core]
 	editor = vim
-	excludesfile = $HOME/.gitexclude
+	excludesfile = ~/.gitexclude
+[push]
+	default = matching
