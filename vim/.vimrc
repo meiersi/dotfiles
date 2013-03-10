@@ -35,6 +35,16 @@ set background=light
 colorscheme solarized
 filetype plugin on
 
+" Temporary files
+set directory=~/tmp/vim/
+set undofile
+set undodir=~/tmp/vim/
+set backup
+set backupdir=~/tmp/vim/
+set backupskip=~/tmp/vim/
+set writebackup
+
+
 " ---------------------------------------------------------------------------
 "  configurations for vim or gvim only
 if !has("gui_running")
@@ -49,7 +59,7 @@ if has("gui_running")
     "set columns=135
     "set transparency=0
     "set gfn=Monaco:h9.0
-    set gfn=Menlo:h13.0
+    "set gfn=Menlo:h13.0
 
     set guioptions-=T        " no toolbar
     set guioptions-=m        " no menubar
@@ -58,7 +68,7 @@ if has("gui_running")
     set guioptions-=r        " no right scrollbar
     set guioptions-=R        " no right scrollbar
     set clipboard=unnamed
-    set vb
+    " set vb
 end
 
 " CtrlP remaps
@@ -72,6 +82,16 @@ end
 :vnoremap <F2>j :Tabularize /\( \\|^\)->\( \\|$\)/l0<CR>
 :vnoremap <F2>k :Tabularize /\( \\|^\)<-\( \\|$\)/l0<CR>
 :vnoremap <F2>l :Tabularize /\( \\|^\)=\( \\|$\)/l0<CR>
+
+" Stylize haskell imports
+fun StylizeHaskell()
+    let l = line(".")
+    let c = col(".")
+    % ! stylish-haskell
+    call cursor(l, c)
+endfun
+
+map <F3> :call StylizeHaskell()<CR>
 
 " filetype for .ML files
 au! BufRead,BufNewFile *.ML         setfiletype sml
