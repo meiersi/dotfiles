@@ -31,7 +31,7 @@ main = xmonad gnomeConfig
     startup = do
         spawn "gnome-keyring-daemon"
         spawn "gnome-settings-daemon"
-        spawn "synapse"
+        spawn "redshift -O 6400K"
         spawn "xset r rate 250 80"
 
     myLayout = avoidStruts $ layoutHints $ showWName $ smartBorders $
