@@ -4,7 +4,6 @@
 " Updated: 2013/02/09
 
 " seting up the mapleader to ';'
-let mapleader = ';' 
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxy'
 let g:EasyMotion_leader_key = '<Leader>'
 
@@ -68,8 +67,12 @@ if has("gui_running")
     set guioptions-=r        " no right scrollbar
     set guioptions-=R        " no right scrollbar
     set clipboard=unnamed
-    " set vb
+    " disalbe stupid bells
+    set vb t_vb=
 end
+
+" Save on pressing shift
+nnoremap ; :
 
 " CtrlP remaps
 :nnoremap CTRL-p :CtrlP
