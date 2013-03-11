@@ -52,14 +52,6 @@ if !has("gui_running")
     " let g:AutoClosePreservDotReg=0
 end
 if has("gui_running")
-    "let rdark_current_line=1  " highlight current line
-    "set noantialias
-    "set lines=64
-    "set columns=135
-    "set transparency=0
-    "set gfn=Monaco:h9.0
-    "set gfn=Menlo:h13.0
-
     set guioptions-=T        " no toolbar
     set guioptions-=m        " no menubar
     set guioptions-=l        " no left scrollbar
@@ -121,12 +113,11 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
-" Use alt-cursors to flip between windows
-map <A-Up> <C-W><Up>
-map <A-Down> <C-W><Down>
-map <A-Left> <C-W><Left>
-map <A-Right> <C-W><Right>
-map <A-c> <C-W>c
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Change to the directory the file in your current buffer is in
 "autocmd BufEnter * :lcd %:p:h
