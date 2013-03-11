@@ -28,3 +28,6 @@
 [submodule "bash/dircolors"]
 	path = bash/dircolors
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
