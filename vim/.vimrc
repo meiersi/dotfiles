@@ -78,6 +78,9 @@ nnoremap ; :
 :vnoremap <F2>k :Tabularize /\( \\|^\)<-\( \\|$\)/l0<CR>
 :vnoremap <F2>l :Tabularize /\( \\|^\)=\( \\|$\)/l0<CR>
 
+" Haskell mode configuration
+let g:haddock_browser="/usr/bin/chromium-browser"
+
 " Stylize haskell imports
 fun StylizeHaskell()
     let l = line(".")
@@ -93,7 +96,8 @@ au! BufRead,BufNewFile *.ML         setfiletype sml
 
 " mapping for calling make
 map <F7> :w<CR>:!pdflatex %<CR>
-map <F8> :w<CR>:!make<CR>
+map <F8> :make<CR>
+set autowrite          " ensure that data is writen before make
 
 " NerdTree
 map <F9> :NERDTreeToggle<CR>

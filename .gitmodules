@@ -31,3 +31,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/haskell-mode"]
+	path = vim/bundle/haskell-mode
+	url = git://github.com/lukerandall/haskellmode-vim.git
