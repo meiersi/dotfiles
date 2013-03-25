@@ -84,6 +84,17 @@ nnoremap ; :
 " Haskell mode configuration
 let g:haddock_browser="/usr/bin/chromium-browser"
 
+" filetype for .hs and .lhs files
+au! BufRead,BufNewFile *.hs         :compiler ghc
+au! BufRead,BufNewFile *.lhs        :compiler ghc
+
+" Disable haskell checking in syntastic
+let g:syntastic_haskell_checkers = []
+" let g:syntastic_mode_map = { "mode": "active",
+"                              "active_filetypes": [],
+"                              "passive_filetypes": [] }
+" 
+
 " Stylize haskell imports
 fun StylizeHaskell()
     let l = line(".")

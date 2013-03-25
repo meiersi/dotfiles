@@ -34,3 +34,6 @@
 [submodule "vim/bundle/haskell-mode"]
 	path = vim/bundle/haskell-mode
 	url = git://github.com/lukerandall/haskellmode-vim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
