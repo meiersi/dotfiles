@@ -22,7 +22,8 @@ set nowrap
 set gdefault
 set tw=78                     " default textwidth is a max of 78
 set list                      " enable custom list chars
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮    " replace tabs, eol
+" set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮    " replace tabs, eol
+set listchars=tab:▸\ ,extends:❯,precedes:❮    " replace tabs, eol
 set showbreak=↪               " show breaks
 set colorcolumn=+1
 set number
@@ -73,10 +74,12 @@ nnoremap ; :
 :nnoremap <F2>j :Tabularize /\( \\|^\)->\( \\|$\)/l0<CR>
 :nnoremap <F2>k :Tabularize /\( \\|^\)<-\( \\|$\)/l0<CR>
 :nnoremap <F2>l :Tabularize /\( \\|^\)=\( \\|$\)/l0<CR>
+:nnoremap <F2>o :Tabularize /\( \\|^\)::\( \\|$\)/l0<CR>
                                   
 :vnoremap <F2>j :Tabularize /\( \\|^\)->\( \\|$\)/l0<CR>
 :vnoremap <F2>k :Tabularize /\( \\|^\)<-\( \\|$\)/l0<CR>
 :vnoremap <F2>l :Tabularize /\( \\|^\)=\( \\|$\)/l0<CR>
+:vnoremap <F2>o :Tabularize /\( \\|^\)::\( \\|$\)/l0<CR>
 
 " Stylize haskell imports
 fun StylizeHaskell()
