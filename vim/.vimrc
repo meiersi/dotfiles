@@ -90,6 +90,7 @@ au! BufRead,BufNewFile *.lhs        :compiler ghc
 
 " Disable haskell checking in syntastic
 let g:syntastic_haskell_checkers = []
+let g:syntastic_html_checkers = []
 " let g:syntastic_mode_map = { "mode": "active",
 "                              "active_filetypes": [],
 "                              "passive_filetypes": [] }
@@ -154,4 +155,4 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType javascript,latex,org,haskell,c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType html,less,sql,javascript,latex,org,haskell,c,cpp,java,php,ruby,python,md autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
