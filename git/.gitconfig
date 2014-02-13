@@ -1,6 +1,6 @@
 [user]
 	name = Simon Meier
-	email = simon.meier@erudify.ch
+	email = simon.meier@erudify.com
 [color]
     ui = true
     diff = auto
@@ -9,3 +9,13 @@
 	excludesfile = ~/.gitexclude
 [push]
 	default = matching
+
+[alias]
+    hist = log --pretty=format:\" %h %C(yellow)%ad%Creset | %s%C(bold green)%d%Creset %C(blue)[%an]%Creset\" --graph --date=short
+    st  = status
+    ci  = commit
+    ch  = checkout
+    br  = branch
+    ff  = merge --ff-only
+    wu = log --stat origin..@{0}
+    up = !sh -c 'git stash && git pull && git stash pop'
