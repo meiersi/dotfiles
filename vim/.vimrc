@@ -75,11 +75,13 @@ nnoremap ; :
 :nnoremap <F2>k :Tabularize /\( \\|^\)<-\( \\|$\)/l0<CR>
 :nnoremap <F2>l :Tabularize /\( \\|^\)=\( \\|$\)/l0<CR>
 :nnoremap <F2>o :Tabularize /\( \\|^\)::\( \\|$\)/l0<CR>
+:nnoremap <F2>i :Tabularize /:<CR>
                                   
 :vnoremap <F2>j :Tabularize /\( \\|^\)->\( \\|$\)/l0<CR>
 :vnoremap <F2>k :Tabularize /\( \\|^\)<-\( \\|$\)/l0<CR>
 :vnoremap <F2>l :Tabularize /\( \\|^\)=\( \\|$\)/l0<CR>
 :vnoremap <F2>o :Tabularize /\( \\|^\)::\( \\|$\)/l0<CR>
+:vnoremap <F2>i :Tabularize /:<CR>
 
 " Haskell mode configuration
 let g:haddock_browser="/usr/bin/chromium-browser"
@@ -91,6 +93,7 @@ au! BufRead,BufNewFile *.lhs        :compiler ghc
 " Disable haskell checking in syntastic
 let g:syntastic_haskell_checkers = []
 let g:syntastic_html_checkers = []
+let g:syntastic_typescript_checkers = []
 " let g:syntastic_mode_map = { "mode": "active",
 "                              "active_filetypes": [],
 "                              "passive_filetypes": [] }
@@ -155,4 +158,4 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType html,less,sql,javascript,latex,org,haskell,c,cpp,java,php,ruby,python,md autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType typescript,html,less,sql,javascript,latex,org,haskell,c,cpp,java,php,ruby,python,md autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
