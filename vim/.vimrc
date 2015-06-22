@@ -21,6 +21,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'spwhitt/vim-nix'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,8 +44,9 @@ syntax on
 
 " basic options
 set t_vb=
-set visualbell
-set errorbells
+set t_Co=16
+set novisualbell
+set noerrorbells
 set autoindent
 set mouse=a
 set incsearch
@@ -103,3 +106,24 @@ map <Leader>a :Tabularize //<Left>
 map <Leader>p :CtrlPBuffer<CR>
 map <Leader>t :NERDTreeToggle<CR>
 map <Leader>w :StripWhitespace<CR>:w<CR>
+map <Leader>gs :GStatus<CR>
+
+" Grep options
+autocmd QuickFixCmdPost *grep* cwindow " Always open the quickfix window when grepping
+
+" Git grep. Example usage:
+" :GG -i 'foobar' -- lib/*.hs
+" Grep case-insensitively for the string 'foobar', searching all haskell
+" source files located (recursively) under the 'lib' directory.
+if !exists(':GG')
+  " Ggrep! = git grep without automatically jumping to the first match
+  command -nargs=+ GG silent Ggrep! <args>
+endif
+
+" Fast searching for word under cursor
+map <Leader>gg :GG <cword><CR>
+map <Leader>f :cnext<CR>
+map <Leader>b :cprevious<CR>
+
+" *.md is Markdown, I don't write Modula2 files ;-)
+autocmd BufNewFile,BufRead *.md set filetype=markdown
