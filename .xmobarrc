@@ -1,0 +1,24 @@
+Config { font = "-*-terminus-*-*-*-*-14-*-*-*-*-*-*-*"
+--      , bgColor = "#0f0f0f"
+      , bgColor = "#000000"
+      , fgColor = "#2760ff"
+--      , position = Bottom
+      , position = BottomW L 80
+--      , position = BottomW R 100
+--      , lowerOnStart = True
+      , commands = [ Run Cpu ["-L","20","-H","75","--normal","#007033","--high","#700033"] 10
+                   , Run Memory ["-t","Mem: <usedratio>%"] 10
+                   , Run Date "%H:%M  %Y-%m-%d [%a]" "date" 10
+--                   , Run CpuFreq [] 50
+                   , Run Battery ["-t", "Batt: <left>% (<timeleft>)"] 50 -- ["-t", "Batt: <left>% (<timeleft>)", "-L","10","--low","#FF3300", "--", "-c", "energy_full"] 50
+                   , Run StdinReader
+--                   , Run Thermal "THM0" [] 50
+--                   , Run Com "cat" ["/home/sbl/.sup/mailcount"] "mail" 10
+--                   , Run Com "/home/sbl/bin/xmobar-fan.sh" [] "fan" 30
+                   ]
+      , sepChar = "%"
+      , alignSep = "}{"
+--      , template = "   %StdinReader% }{ %cpu% | Fan: %fan% | %memory% | battery    <fc=#2775cc>%date%</fc>   "
+      , template = "   %StdinReader% }{ %cpu% | %memory%    <fc=#2775cc>%date%</fc>   "
+      }
+
