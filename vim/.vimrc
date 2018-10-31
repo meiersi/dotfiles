@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, required
+set nocompatible              " be improved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -16,13 +16,16 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'godlygeek/tabular'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'spwhitt/vim-nix'
+Plugin 'ahf/twelf-syntax'
+Plugin 'tpope/vim-repeat'
+Plugin 'easymotion/vim-easymotion'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,9 +77,12 @@ set directory=~/tmp/vim/
 set undofile
 set undodir=~/tmp/vim/
 set backup
+set backupcopy=yes
 set backupdir=~/tmp/vim/
 set backupskip=~/tmp/vim/
 set writebackup
+
+let mapleader=","
 
 " ensure that buffer position is restored
 function! ResCur()
@@ -94,6 +100,34 @@ augroup END
 " Ctrl-P configuration
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard']
 
+" tags configuration
+set tags+=./tags,tags;/,
+
+" EasyMotion configuration
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+vmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+" nmap s <Plug>(easymotion-s2)
+" vmap s <Plug>(easymotion-s2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Easy centering of window in normal and visual modes
+nmap <space> zz
+vmap <space> zz
+
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -101,12 +135,12 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Quick commands using leader sequences
-let mapleader=","
 map <Leader>a :Tabularize //<Left>
 map <Leader>p :CtrlPBuffer<CR>
 map <Leader>t :NERDTreeToggle<CR>
 map <Leader>w :StripWhitespace<CR>:w<CR>
 map <Leader>gs :GStatus<CR>
+map <F3> :w<CR>:make!<CR>
 
 " Grep options
 autocmd QuickFixCmdPost *grep* cwindow " Always open the quickfix window when grepping
@@ -127,3 +161,34 @@ map <Leader>b :cprevious<CR>
 
 " *.md is Markdown, I don't write Modula2 files ;-)
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+autocmd BufNewFile,BufRead *.alp set filetype=alp
+autocmd BufNewFile,BufRead *.daml set filetype=daml
+
+" Update (or create) tags files when working on haskell
+"
+" If you do not want tags, you can add
+"
+" :au! tags
+"
+" to the end of your personal .vimrc file
+" or run it in vim to disable it for the current session
+"
+" By default tag files are created for
+"
+" 1. files you've edited
+"
+" 2. files which are checked into git but are not in the scratch dir
+augroup tags
+au BufWritePost *.hs  silent !init-tags %
+au BufWritePost *.hsc silent !init-tags %
+augroup END
+
+" If you use qualified tags, then you have to change iskeyword to include
+" a dot.  Unfortunately, that affects a lot of other commands, such as
+" w, and \< \> regexes used by * and #.  For me, this is confusing because
+" it's inconsistent with vim keys everywhere else. This makes the change
+" only affect <c-]>. It might be good to also change this setting for
+" :tj and the like, but that exceeds my vim-fu.
+nnoremap <silent> <c-]> :setl iskeyword=@,_,.,48-57,39<cr><c-]>
+  \:setl iskeyword=@,48-57,_,192-255<cr>
