@@ -25,6 +25,8 @@ Plugin 'spwhitt/vim-nix'
 Plugin 'ahf/twelf-syntax'
 Plugin 'tpope/vim-repeat'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
 
 
 " All of your Plugins must be added before the following line
