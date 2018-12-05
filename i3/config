@@ -218,10 +218,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 set $mode_power [l]ock, [s]suspend, or [e]xit
 bindsym $mod+p mode "$mode_power"
 
-mode "$mode_power" {
-    bindsym l mode "default"; exec --no-startup-id "i3lock"
-    bindsym s mode "default"; exec --no-startup-id "i3lock && systemctl suspend"
-    bindsym e mode "default"; exit
+mode "$mode_powerlauncher" {
+    bindsym l exec --no-startup-id "i3lock"
+    bindsym s exec --no-startup-id "i3lock && systemctl suspend"
+    bindsym e exit
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
