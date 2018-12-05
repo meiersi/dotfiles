@@ -1,6 +1,9 @@
 set nocompatible              " be improved, required
 filetype off                  " required
 
+" set localleader to have it in effect when the plugins are loaded
+let maplocalleader=","
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
