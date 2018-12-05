@@ -211,3 +211,18 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+
+
+# Power state management
+set $mode_power [l]ock, [s]suspend, or [e]xit
+bindsym $mod+p mode "$mode_power"
+
+mode "$mode_power" {
+    bindsym l mode "default"; exec --no-startup-id "i3lock"
+    bindsym s mode "default"; exec --no-startup-id "i3lock && systemctl suspend"
+    bindsym e mode "default"; exit
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
