@@ -175,8 +175,8 @@ set $mode_launcher Launch: [i]nternet [g]vim
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-    bindsym g exec gvim
-    bindsym i exec google-chrome
+    bindsym g mode "default"; exec gvim
+    bindsym i mode "default"; exec google-chrome
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
