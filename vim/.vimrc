@@ -30,6 +30,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
+Plugin 'ledger/vim-ledger'
 
 
 " All of your Plugins must be added before the following line
@@ -165,6 +166,7 @@ map <Leader>f :cnext<CR>
 map <Leader>b :cprevious<CR>
 
 " *.md is Markdown, I don't write Modula2 files ;-)
+autocmd BufNewFile,BufRead *.journal set filetype=ledger
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 autocmd BufNewFile,BufRead *.alp set filetype=alp
@@ -184,10 +186,10 @@ autocmd BufNewFile,BufRead *.daml set filetype=daml
 " 1. files you've edited
 "
 " 2. files which are checked into git but are not in the scratch dir
-augroup tags
-au BufWritePost *.hs  silent !init-tags %
-au BufWritePost *.hsc silent !init-tags %
-augroup END
+" augroup tags
+" au BufWritePost *.hs  silent !init-tags %
+" au BufWritePost *.hsc silent !init-tags %
+" augroup END
 
 " If you use qualified tags, then you have to change iskeyword to include
 " a dot.  Unfortunately, that affects a lot of other commands, such as
