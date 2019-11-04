@@ -26,8 +26,10 @@ font pango:Ubuntu Mono 11
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# Bluetooth applet
+# Bluetooth applet, Network manager, xcompmgr
+exec --no-startup-id xcompmgr
 exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
