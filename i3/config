@@ -30,6 +30,12 @@ font pango:Ubuntu Mono 11
 exec --no-startup-id xcompmgr
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
+exec --no-startup-id gnome-settings-daemon
+
+
+# 2022-12-19 -- looks like I don't need that anymore
+# exec --no-startup-id /home/simon/set-mic-volume.sh
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -124,8 +130,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 # move current workspace to next output
 bindsym $mod+x move workspace to up
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -179,16 +183,23 @@ exec --no-startup-id "xset r rate 200 40"
 
 # Press $mod+o followed by either f, t, Escape or Return to launch firefox,
 # thunderbird or return to the default mode, respectively.
-set $mode_launcher Launch: [i]nternet [g]vim
+set $mode_launcher Launch: [i]nternet [g]vim [s]creenshot or reload [c]onfig
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym g mode "default"; exec gvim
     bindsym i mode "default"; exec google-chrome
+    bindsym s mode "default"; exec gnome-screenshot --interactive
+    bindsym c mode "default"; reload
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
+
+# Screenshots
+bindsym $mod+c exec gnome-screenshot --window -f /tmp/screenshot.png && cat /tmp/screenshot.png | xclip -i -selection clipboard -target image/png
+bindsym $mod+Shift+c exec gnome-screenshot --area -f /tmp/screenshot.png && cat /tmp/screenshot.png | xclip -i -selection clipboard -target image/png
+
 
 # Simple brightness adjustment
 set $mode_brightness Change brightness from 1 to 10
