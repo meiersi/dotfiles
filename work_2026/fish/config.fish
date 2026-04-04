@@ -29,4 +29,6 @@ if status is-interactive
     # Set it rather once too many than too few times ;-)
     # xset r rate 150 45
 
+    bind ctrl-comma _fzf_search_directory
+
 end
