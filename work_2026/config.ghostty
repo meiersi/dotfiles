@@ -1,0 +1,9 @@
+# theme=GitHub Dark Default
+# theme=0x96f
+# theme=Monokai Pro
+# theme=Monokai Remastered
+theme=Apple System Colors
+macos-option-as-alt=true
+
+command = /opt/homebrew/bin/fish --interactive 
+macos-titlebar-style = hidden
