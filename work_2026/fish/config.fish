@@ -6,6 +6,7 @@ if status is-interactive
 
     fish_add_path ~/.daml/bin
     fish_add_path ~/.dpm/bin
+    fish_add_path /nix/var/nix/profiles/default/bin
 
     abbr --position command --add lg lazygit
     abbr --position command --add gg lazygit
