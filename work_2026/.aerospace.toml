@@ -97,14 +97,18 @@ automatically-unhide-macos-hidden-apps = true
     # end tell'
     # '''
 
-    alt-shift-w = 'close'
+    alt-w = 'close'
     # alt-enter = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty'
 
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
+    alt-i = 'layout tiles horizontal vertical'
+    alt-o = 'layout accordion horizontal vertical'
     alt-f = 'fullscreen'
+
+    alt-x = 'move-workspace-to-monitor --wrap-around down'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
@@ -190,13 +194,6 @@ automatically-unhide-macos-hidden-apps = true
     # alt-shift-y = 'move-node-to-workspace Y'
     # alt-shift-z = 'move-node-to-workspace Z'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    # alt-tab = 'workspace-back-and-forth'
-    # alt-tab = 'focus-monitor --wrap-around up'
-    # alt-i = 'workspace-back-and-forth'
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to
-    # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-    # alt-u = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
