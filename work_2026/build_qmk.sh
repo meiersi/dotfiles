@@ -71,33 +71,25 @@ if (record->event.pressed \&\& get_repeat_key_count() < -1) {\n\
 # Repeat key mapping for the snth layout
 echo "
 
-#define HOME_I MT(MOD_LALT, KC_I)
-// #define HOME_E MT(MOD_LSFT, KC_E)
-#define HOME_E LT(2,KC_E)
-#define HOME_C LT(4,KC_C)
-#define HOME_A MT(MOD_LCTL, KC_A)
-#define HOME_H MT(MOD_RCTL, KC_H)
-#define HOME_T MT(MOD_RSFT, KC_T)
-#define HOME_N MT(MOD_LALT, KC_N)
-#define HOME_S LT(3,KC_S)
-#define HOME_R LT(1,KC_R)
-#define HOME_DOT KC_DOT
-// #define HOME_DOT MT(MOD_RGUI, KC_DOT)
-#define HOME_B KC_B
-// #define HOME_B TD(DANCE_0)
-// #define HOME_O TD(DANCE_0)
-#define HOME_O KC_O
-#define HOME_D KC_D
-// #define HOME_D TD(DANCE_1)
-// #define HOME_F TD(DANCE_1)
-#define HOME_F KC_F
+#define HOME_B LT(4, KC_B)
+#define HOME_N MT(MOD_LCTL, KC_N)
+#define HOME_R MT(MOD_LALT, KC_R)
+#define HOME_T LT(2, KC_T)
+#define HOME_D MT(MOD_LGUI, KC_D)
+#define HOME_P KC_P
+#define HOME_Y KC_Y
+#define HOME_H MT(MOD_LGUI, KC_H)
+#define HOME_A MT(MOD_RSFT, KC_A)
+#define HOME_E MT(MOD_LALT, KC_E)
+#define HOME_I MT(MOD_RCTL, KC_I)
+#define HOME_COMMA LT(3, KC_COMMA)
 
 
 uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
         case KC_Y: return KC_I;
         case KC_U: return KC_A;
-        case HOME_O: return KC_E;
+        case HOME_Y: return KC_E;
         case HOME_A: return KC_U;
         case HOME_E: return KC_O;
         case KC_QUOTE: return KC_E;
@@ -118,7 +110,7 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
 
         case HOME_B: return KC_I;
 
-        case HOME_C: return KC_B;
+        case HOME_N: return KC_B;
 
         case KC_L: return KC_M;
         case KC_M: return KC_L;
@@ -133,17 +125,16 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         case KC_W: return KC_S;
         // case KC_W: return KC_N;
 
-        case HOME_N: return KC_F;
         case KC_P: return KC_S;
-        case HOME_S: return KC_P;
-        case HOME_F: return KC_N;
+        case HOME_P: return KC_P;
+        case HOME_I: return KC_N;
 
         case KC_V: return KC_S;
         case KC_Q: return KC_S;
         case KC_X: return KC_C;
         // case KC_X: return KC_H;
 
-        case HOME_I: return KC_X;
+        case HOME_COMMA: return KC_X;
         // case HOME_I: return KC_Z;
         case KC_Z: return KC_Y;
 
