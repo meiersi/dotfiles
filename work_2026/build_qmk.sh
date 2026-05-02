@@ -3,13 +3,13 @@
 set -eoux pipefail
 
 zip="oryx/flow-1.zip"
-source="oryx/zsa_voyager_qwerty-with-repeat-key_source"
+source="oryx/zsa_voyager_mac-bunya_source"
 keymap="$source/keymap.c"
 config="$source/config.h"
 
 ln -sf "$PWD/$source/" "keyboards/zsa/voyager/keymaps/flow"
 
-
+rm -rf "$source"
 unzip -od oryx "$zip"
 
 # Sed it into shape
@@ -17,7 +17,7 @@ if  ! grep -q ' SS_DELAY(100)' "$keymap"; then
     echo "No occurrence of ' SS_DELAY(100)' in $keymap, exiting..."
     exit 1
 fi
-sed -i 's/ SS_DELAY(100)//g' "$keymap"
+sed -i '' 's/ SS_DELAY(100)//g' "$keymap"
 
 
 # # replace taps for BEC with SEND_STRING("because ");
@@ -45,7 +45,7 @@ if ! grep -q "$repeat_key" "$keymap"; then
     echo "Cannot find '$repeat_key' in $keymap, exiting..."
     exit 1
 fi
-sed -i "s/$repeat_key/QK_REPEAT_KEY/g" "$keymap"
+sed -i '' "s/$repeat_key/QK_REPEAT_KEY/g" "$keymap"
 
 # Append the feature flag to rules.mk
 echo "REPEAT_KEY_ENABLE = yes" >> "$source/rules.mk"
@@ -56,9 +56,9 @@ if ! grep -q "$alt_repeat_key" "$keymap"; then
     echo "Cannot find '$alt_repeat_key' in $keymap, exiting..."
     exit 1
 fi
-sed -i "s/$alt_repeat_key/QK_ALT_REPEAT_KEY/g" "$keymap"
+sed -i '' "s/$alt_repeat_key/QK_ALT_REPEAT_KEY/g" "$keymap"
 
-sed -i "s/\(bool process_record_user.*\)/\
+sed -i '' "s/\(bool process_record_user.*\)/\
 \1\n\
 \/\/ Only alt-repeat once, and then just press space to avoid SFB on thumb\n\
 if (record->event.pressed \&\& get_repeat_key_count() < -1) {\n\
@@ -234,7 +234,7 @@ if true; then
             case HOME_R: return KC_R; // easy repeat
             // case HOME_R: return KC_Z;
 
-            case US_UDIA: return KC_B;
+            // case US_UDIA: return KC_B;
 
         }
         return KC_TRNS;
