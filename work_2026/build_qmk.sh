@@ -87,7 +87,7 @@ echo "
 
 uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
-        case KC_NUBS: return KC_NUBS;
+        case KC_NUBS: return KC_4; // numpad for tmux
         case KC_1: return KC_1;
         case KC_2: return KC_2;
         case KC_3: return KC_3;
@@ -98,47 +98,48 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         case KC_8: return KC_8;
         case KC_9: return KC_9;
         case KC_0: return KC_0;
-        case KC_RIGHT_GUI: return KC_RIGHT_GUI;
-        case QK_REPEAT_KEY: return QK_REPEAT_KEY;
+        case KC_RIGHT_GUI: return KC_RIGHT_GUI; // stop dictation
+        // case QK_REPEAT_KEY: return QK_REPEAT_KEY;
         case KC_ESCAPE: return KC_ESCAPE;
-        case KC_L: return KC_L;
-        case KC_M: return KC_M;
-        case KC_C: return KC_C;
+        case KC_L: return KC_R;
+        case KC_M: return KC_T;
+        case KC_C: return KC_W; // vim
         case KC_MINUS: return KC_MINUS;
         case KC_QUOTE: return KC_QUOTE;
-        case KC_F: return KC_F;
-        case KC_O: return KC_O;
-        case KC_U: return KC_U;
+        case KC_F: return KC_Y;
+        case KC_O: return KC_A;
+        case KC_U: return KC_E;
         case KC_SCLN: return KC_SCLN;
-        case KC_PGDN: return KC_PGDN;
-        case HOME_B: return HOME_B;
-        case HOME_N: return HOME_N;
-        case HOME_R: return HOME_R;
-        case HOME_T: return HOME_T;
-        case HOME_D: return HOME_D;
-        case KC_P: return KC_P;
-        case KC_Y: return KC_Y;
-        case HOME_H: return HOME_H;
-        case HOME_A: return HOME_A;
-        case HOME_E: return HOME_E;
-        case HOME_I: return HOME_I;
-        case HOME_COMMA: return HOME_COMMA;
-        case KC_Q: return KC_Q;
-        case OSM(MOD_LSFT): return OSM(MOD_LSFT);
-        case KC_X: return KC_X;
-        case KC_V: return KC_V;
-        case KC_G: return KC_G;
-        case KC_W: return KC_W;
-        case KC_J: return KC_J;
-        case KC_K: return KC_K;
-        case KC_DOT: return KC_DOT;
-        case KC_SLASH: return KC_SLASH;
-        case OSM(MOD_RSFT): return OSM(MOD_RSFT);
-        case KC_Z: return KC_Z;
-        case QK_ALT_REPEAT_KEY: return QK_ALT_REPEAT_KEY;
-        case MT(MOD_LSFT, KC_SPACE): return MT(MOD_LSFT, KC_SPACE);
-        case LT(1, KC_S): return LT(1, KC_S);
-        case OSL(6): return OSL(6);
+        case KC_PGDN: return KC_PGUP;
+        case KC_PGUP: return KC_PGDN;
+        case HOME_B: return KC_R; // awkward stretch
+        case HOME_N: return KC_B;
+        case HOME_R: return KC_L;
+        case HOME_T: return KC_M;
+        case HOME_D: return KC_G;
+        case KC_P: return KC_D;
+        case KC_Y: return KC_K;
+        case HOME_H: return KC_Y;
+        case HOME_A: return KC_O;
+        case HOME_E: return KC_U;
+        case HOME_I: return KC_Z;
+        case HOME_COMMA: return KC_I;
+        case KC_Q: return KC_N;
+        // case OSM(MOD_LSFT): return OSM(MOD_LSFT);
+        case KC_X: return KC_L;
+        case KC_V: return KC_M;
+        case KC_G: return KC_D;
+        case KC_W: return KC_D;
+        case KC_J: return KC_H;
+        case KC_K: return KC_Y;
+        case KC_DOT: return KC_A;
+        case KC_SLASH: return KC_E;
+        // case OSM(MOD_RSFT): return OSM(MOD_RSFT);
+        case KC_Z: return KC_I;
+        // case QK_ALT_REPEAT_KEY: return QK_ALT_REPEAT_KEY;
+        // case MT(MOD_LSFT, KC_SPACE): return MT(MOD_LSFT, KC_SPACE);
+        // case LT(1, KC_S): return LT(1, KC_S);
+        // case OSL(6): return OSL(6);
 
     }
     return KC_TRNS;
