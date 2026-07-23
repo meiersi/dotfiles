@@ -68,21 +68,25 @@ if (record->event.pressed \&\& get_repeat_key_count() < -1) {\n\
 /" "$keymap"
 
 
-# Repeat key mapping for the snth layout
+# Repeat key mapping for the bunya layout
 echo "
 
-#define HOME_B LT(4, KC_B)
-#define HOME_N MT(MOD_LCTL, KC_N)
-#define HOME_R MT(MOD_LALT, KC_R)
-#define HOME_T LT(2, KC_T)
-#define HOME_D MT(MOD_LGUI, KC_D)
-#define HOME_P KC_P
-#define HOME_Y KC_Y
-#define HOME_H MT(MOD_LGUI, KC_H)
-#define HOME_A MT(MOD_RSFT, KC_A)
+#define HOME_COMMA KC_COMMA
+#define HOME_I MT(MOD_LCTL, KC_I)
 #define HOME_E MT(MOD_LALT, KC_E)
-#define HOME_I MT(MOD_RCTL, KC_I)
-#define HOME_COMMA LT(3, KC_COMMA)
+#define HOME_A LT(2, KC_A)
+#define HOME_H MT(MOD_LGUI, KC_H)
+#define HOME_Y KC_Y
+#define HOME_P KC_P
+#define HOME_D MT(MOD_LGUI, KC_D)
+#define HOME_T MT(MOD_RSFT, KC_T)
+#define HOME_R MT(MOD_LALT, KC_R)
+#define HOME_N MT(MOD_RCTL, KC_N)
+#define HOME_B LT(3, KC_B)
+#define HOME_S LT(1, KC_S)
+#define HOME_O KC_O
+#define HOME_U LT(4, KC_U)
+#define HOME_M KC_M
 
 
 uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
@@ -102,43 +106,43 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         // case QK_REPEAT_KEY: return QK_REPEAT_KEY;
         case KC_ESCAPE: return KC_ESCAPE;
         case KC_L: return KC_R;
-        case KC_M: return KC_T;
+        case HOME_M: return KC_T;
         case KC_C: return KC_W; // vim
-        case KC_MINUS: return KC_MINUS;
-        case KC_QUOTE: return KC_QUOTE;
+        case KC_MINUS: return KC_H;
+        case KC_QUOTE: return KC_ENTER;
         case KC_F: return KC_Y;
-        case KC_O: return KC_A;
-        case KC_U: return KC_E;
-        case KC_SCLN: return KC_SCLN;
+        case HOME_O: return KC_A;
+        case HOME_U: return KC_E;
+        case KC_SCLN: return KC_ENTER;
         case KC_PGDN: return KC_PGUP;
         case KC_PGUP: return KC_PGDN;
         case HOME_B: return KC_R; // awkward stretch
         case HOME_N: return KC_B;
         case HOME_R: return KC_L;
         case HOME_T: return KC_M;
-        case HOME_D: return KC_G;
+        case HOME_D: return KC_J;
         case KC_P: return KC_D;
-        case KC_Y: return KC_K;
+        case KC_Y: return KC_QUOTE;
         case HOME_H: return KC_Y;
         case HOME_A: return KC_O;
         case HOME_E: return KC_U;
         case HOME_I: return KC_Z;
-        case HOME_COMMA: return KC_I;
-        case KC_Q: return KC_N;
+        case HOME_COMMA: return KC_ENTER;
+        case KC_Q: return KC_L;
         // case OSM(MOD_LSFT): return OSM(MOD_LSFT);
         case KC_X: return KC_L;
         case KC_V: return KC_M;
         case KC_G: return KC_D;
         case KC_W: return KC_D;
-        case KC_J: return KC_H;
+        case KC_J: return KC_D;
         case KC_K: return KC_Y;
-        case KC_DOT: return KC_A;
-        case KC_SLASH: return KC_E;
+        case KC_DOT: return KC_ENTER;
+        case KC_SLASH: return KC_ENTER;
         // case OSM(MOD_RSFT): return OSM(MOD_RSFT);
         case KC_Z: return KC_I;
         // case QK_ALT_REPEAT_KEY: return QK_ALT_REPEAT_KEY;
         // case MT(MOD_LSFT, KC_SPACE): return MT(MOD_LSFT, KC_SPACE);
-        // case LT(1, KC_S): return LT(1, KC_S);
+        case HOME_S: return KC_S;
         // case OSL(6): return OSL(6);
 
     }
