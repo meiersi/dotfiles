@@ -1,0 +1,21 @@
+git:
+  paging:
+    colorArg: always
+    pager: >-
+      delta --dark --paging=never --syntax-theme=none
+      --keep-plus-minus-markers
+      --commit-style=raw
+      --commit-decoration-style=none
+      --file-style='bold #e3b341'
+      --file-decoration-style=none
+      --file-modified-label='modified:'
+      --file-renamed-label=$'renamed:\n  '
+      --right-arrow=$'\n →'
+      --hunk-label=''
+      --hunk-header-style='line-number bold #79c0ff'
+      --hunk-header-line-number-style='bold #58a6ff'
+      --hunk-header-decoration-style=none
+      --minus-style=red
+      --plus-style=green
+      --minus-emph-style='red #642b4a'
+      --plus-emph-style='green #35461a'
