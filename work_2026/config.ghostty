@@ -1,8 +1,12 @@
 # theme=GitHub Dark Default
 # theme=0x96f
 # theme=Monokai Pro
-# theme=Monokai Remastered
-theme=Apple System Colors
+theme=Monokai Remastered
+# theme=Apple System Colors 
+# theme=iTerm2 Solarized Dark    
+# theme=iTerm2 Dark Background
+# theme=12-bit Rainbow
+# theme=Catppuccin Mocha
 macos-option-as-alt=true
 
 command = /opt/homebrew/bin/fish --interactive 

@@ -1,21 +1,32 @@
 git:
-  paging:
-    colorArg: always
-    pager: >-
-      delta --dark --paging=never --syntax-theme=none
-      --keep-plus-minus-markers
-      --commit-style=raw
-      --commit-decoration-style=none
-      --file-style='bold #e3b341'
-      --file-decoration-style=none
-      --file-modified-label='modified:'
-      --file-renamed-label=$'renamed:\n  '
-      --right-arrow=$'\n →'
-      --hunk-label=''
-      --hunk-header-style='line-number bold #79c0ff'
-      --hunk-header-line-number-style='bold #58a6ff'
-      --hunk-header-decoration-style=none
-      --minus-style=red
-      --plus-style=green
-      --minus-emph-style='red #642b4a'
-      --plus-emph-style='green #35461a'
+  diffRenderers:
+    - name: simple
+      command: >-
+        delta --dark --paging=never --keep-plus-minus-markers
+        --commit-style=raw --commit-decoration-style=none
+        --file-style='bold yellow' --file-decoration-style=none
+        --file-modified-label='MODIFIED:' --file-renamed-label='RENAMED:' --right-arrow=' → '
+        --hunk-label='' --hunk-header-style='line-number bold cyan'
+        --hunk-header-line-number-style='bold cyan' --hunk-header-decoration-style=none
+        --syntax-theme=none
+        --minus-style=red --plus-style=green
+        --minus-emph-style='red #642b4a' --plus-emph-style='green #35461a'
+    - name: syntax
+      command: >-
+        delta --dark --paging=never --keep-plus-minus-markers
+        --commit-style=raw --commit-decoration-style=none
+        --file-style='bold yellow' --file-decoration-style=none
+        --file-modified-label='MODIFIED:' --file-renamed-label='RENAMED:' --right-arrow=' → '
+        --hunk-label='' --hunk-header-style='line-number bold cyan'
+        --hunk-header-line-number-style='bold cyan' --hunk-header-decoration-style=none
+        --syntax-theme='Monokai Extended'
+
+gui:
+  theme:
+    selectedLineBgColor:
+      # - '#3c4e53'
+      # - '#303e31'
+      # - '#574d39'
+      - '#384839'
+    inactiveViewSelectedLineBgColor:
+      - '#403e41'
