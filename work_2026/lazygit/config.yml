@@ -1,8 +1,8 @@
 git:
   diffRenderers:
-    - name: simple
+    - name: plain
       command: >-
-        delta --dark --paging=never --keep-plus-minus-markers
+        delta --{{colorScheme}} --paging=never --keep-plus-minus-markers
         --commit-style=raw --commit-decoration-style=none
         --file-style='bold yellow' --file-decoration-style=none
         --file-added-label='ADDED:'
@@ -12,9 +12,10 @@ git:
         --syntax-theme=none
         --minus-style=red --plus-style=green
         --minus-emph-style='red #642b4a' --plus-emph-style='green #35461a'
+
     - name: syntax
       command: >-
-        delta --dark --paging=never --keep-plus-minus-markers
+        delta --{{colorScheme}} --paging=never --keep-plus-minus-markers
         --commit-style=raw --commit-decoration-style=none
         --file-style='bold yellow' --file-decoration-style=none
         --file-added-label='ADDED:'

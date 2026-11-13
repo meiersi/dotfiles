@@ -2,12 +2,16 @@
 # theme=0x96f
 # theme=Monokai Pro
 theme=Monokai Remastered
-# theme=Apple System Colors 
-# theme=iTerm2 Solarized Dark    
+# theme=Apple System Colors
+# theme=iTerm2 Solarized Dark
 # theme=iTerm2 Dark Background
 # theme=12-bit Rainbow
 # theme=Catppuccin Mocha
+# theme=Github Dark
+# theme=One Half Dark
+# theme=Dracula
+theme=GitHub Dark
 macos-option-as-alt=true
 
-command = /opt/homebrew/bin/fish --interactive 
+command = /opt/homebrew/bin/fish --interactive
 macos-titlebar-style = hidden
